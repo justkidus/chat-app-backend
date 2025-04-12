@@ -8,7 +8,7 @@ const {
 
 const messageRouter = express.Router();
 
-messageRouter.get('/user', protectRoute, getUsersForSidebar);
+messageRouter.get('/users', protectRoute, getUsersForSidebar);
 messageRouter.get('/:id', protectRoute, getMessages);
 messageRouter.post('/send/:id', protectRoute, sendMessage);
 module.exports = { messageRouter };

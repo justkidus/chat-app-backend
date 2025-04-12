@@ -2,7 +2,7 @@ const express = require('express');
 const { User } = require('../models/user.model');
 const bcrypt = require('bcryptjs');
 const { generateToken } = require('../lib/utili');
-const cloudinary = require('../lib/cloudinary');
+const { cloudinary } = require('../lib/cloudinary');
 const Register = async (req, res) => {
 	const { fullName, email, password } = req.body;
 	if (!fullName || !email || !password) {
@@ -11,7 +11,7 @@ const Register = async (req, res) => {
 	try {
 		if (password.length < 6)
 			return res.status(400).json({
-				msg: 'Password must be at least 6 charaters',
+				msg: 'Password must be at least 6 charater',
 			});
 
 		const user = await User.findOne({ email });
